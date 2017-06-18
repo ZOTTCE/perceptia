@@ -33,7 +33,7 @@ struct ScreenshooterConstructor {
 impl ScreenshooterConstructor {
     fn new(path: String) -> Self {
         ScreenshooterConstructor {
-            path,
+            path: path,
         }
     }
 }
@@ -67,7 +67,7 @@ impl Screenshooter {
             image: None,
             x_offset: 0,
             y_offset: 0,
-            path,
+            path: path,
         }
     }
 
@@ -90,7 +90,6 @@ impl Screenshooter {
         if self.outputs.len() > 0 {
             self.controller.take_screenshot(&self.outputs.last().expect("get output"));
         } else {
-            // TODO: Generate better file name and allow passing it from command line.
             let path = Path::new(&self.path);
 
             println!("Writing to {:?}", path);

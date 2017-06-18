@@ -60,7 +60,7 @@ fn main() {
                 screenshot::process(String::from(path));
             } else {
                 let now = chrono::Local::now();
-                screenshot::process(now.format("%Y-%m-%d_%H%M%S").to_string());
+                screenshot::process(now.format("screenshot-%Y-%m-%d_%H%M%S.png").to_string());
             }
         }
         ("verify-config", Some(_)) => {
